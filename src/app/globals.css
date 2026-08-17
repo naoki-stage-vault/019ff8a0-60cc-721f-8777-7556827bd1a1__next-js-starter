@@ -1,26 +1,47 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, sans-serif;
+  --font-serif: var(--font-instrument), "Georgia", "Times New Roman", serif;
+
+  /* Paleta de la marca */
+  --color-paper: #f7f7f4;
+  --color-ivory: #fbfaf7;
+  --color-pine: #17383a;
+  --color-pine-deep: #122d2f;
+  --color-pine-soft: #193638;
+  --color-mist: #ddedee;
+  --color-sage: #eaf3f1;
+  --color-ink: #172022;
+  --color-carbon: #49585a;
+  --color-hairline: #e6e8e3;
+
+  /* Sombras extremadamente suaves */
+  --shadow-soft: 0 24px 60px -28px rgb(23 56 58 / 0.28);
+  --shadow-card: 0 14px 36px -20px rgb(23 56 58 / 0.16);
+  --shadow-float: 0 28px 64px -30px rgb(23 56 58 / 0.35);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--color-mist);
+  color: var(--color-pine);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
